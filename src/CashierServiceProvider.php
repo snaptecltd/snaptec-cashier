@@ -3,7 +3,7 @@
 namespace Snaptec\Cashier;
 
 use Illuminate\Support\ServiceProvider;
-use Snaptec\Library\Facades\Hook;
+use Snaptec\Cashier\Library\Facades\Hook;
 
 class CashierServiceProvider extends ServiceProvider
 {
