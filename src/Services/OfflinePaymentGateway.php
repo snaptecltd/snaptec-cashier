@@ -9,13 +9,17 @@ use Snaptec\Model\Transaction;
 class OfflinePaymentGateway implements PaymentGatewayInterface
 {
     protected $paymentInstruction;
+    protected $attachmentEnabled;
+    protected $attachmentRequired;
     protected $active = false;
 
     public const TYPE = 'offline';
 
-    public function __construct($paymentInstruction)
+    public function __construct($paymentInstruction, $attachmentEnabled = false, $attachmentRequired = false)
     {
         $this->paymentInstruction = $paymentInstruction;
+        $this->attachmentEnabled = $attachmentEnabled;
+        $this->attachmentRequired = $attachmentRequired;
 
         $this->validate();
     }
@@ -114,5 +118,25 @@ class OfflinePaymentGateway implements PaymentGatewayInterface
     public function getMinimumChargeAmount($currency)
     {
         return 0;
+    }
+
+    /**
+     * Get attachment enabled setting.
+     *
+     * @return bool
+     */
+    public function getAttachmentEnabled()
+    {
+        return $this->attachmentEnabled;
+    }
+
+    /**
+     * Get attachment required setting.
+     *
+     * @return bool
+     */
+    public function getAttachmentRequired()
+    {
+        return $this->attachmentRequired;
     }
 }

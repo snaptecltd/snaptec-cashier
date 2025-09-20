@@ -19,10 +19,14 @@ class OfflineController extends Controller
             // validate
             $this->validate($request, [
                 'payment_instruction' => 'required',
+                'attachment_enabled' => 'nullable',
+                'attachment_required' => 'nullable',
             ]);
 
             // save settings
             Setting::set('cashier.offline.payment_instruction', $request->payment_instruction);
+            Setting::set('cashier.offline.attachment_enabled', $request->has('attachment_enabled') && $request->attachment_enabled ? 'yes' : 'no');
+            Setting::set('cashier.offline.attachment_required', $request->has('attachment_required') && $request->attachment_required ? 'yes' : 'no');
 
             // enable if not validate
             if ($request->enable_gateway) {

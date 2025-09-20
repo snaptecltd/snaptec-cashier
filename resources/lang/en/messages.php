@@ -155,4 +155,6 @@
     'stripe.short_description' => 'Pay for your subscription & services using your debit
         or credit cards. Auto billing is supported',
     'braintree.click_to_auth' => 'Click <a href=":link">here</a> to authenticate the payment.',
+    'offline.attachemnt_required' => 'Attachment is required',
+    'offline.enable_attachment_upload' => 'Enable attachment upload'
 );

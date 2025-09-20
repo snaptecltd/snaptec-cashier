@@ -21,7 +21,7 @@ class CashierServiceProvider extends ServiceProvider
         // }
 
         // lang
-        $this->loadTranslationsFrom(storage_path('app/cashier/lang'), 'cashier');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cashier');
 
         // routes
         $this->loadRoutesFrom(__DIR__.'/../routes.php');

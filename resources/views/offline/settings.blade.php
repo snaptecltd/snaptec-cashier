@@ -39,6 +39,43 @@
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-6">
+                    @php
+                        // For attachment_enabled
+                        $attachment_enabled_options = [0, 1];
+                        $attachment_enabled_value = old(
+                            'attachment_enabled',
+                            $gateway->getAttachmentEnabled() ? 1 : 0
+                        );
+
+                        // For attachment_required
+                        $attachment_required_options = [0, 1];
+                        $attachment_required_value = old(
+                            'attachment_required',
+                            $gateway->getAttachmentRequired() ? 1 : 0
+                        );
+                    @endphp
+        <br>
+        
+                    @include('helpers.form_control', [
+                        'type' => 'checkbox',
+                        'name' => 'attachment_enabled',
+                        'value' => $attachment_enabled_value,
+                        'options' => $attachment_enabled_options,
+                        'label' => trans('cashier::messages.offline.enable_attachment_upload'),
+                        'help_class' => 'payment',
+                    ])
+
+        <br>
+                    @include('helpers.form_control', [
+                        'type' => 'checkbox',
+                        'name' => 'attachment_required',
+                        'value' => $attachment_required_value,
+                        'options' => $attachment_required_options,
+                        'label' => trans('cashier::messages.offline.attachemnt_required'),
+                        'help_class' => 'payment',
+                    ])
+        <br>
+        
                     @include('helpers.form_control', [
                         'type' => 'textarea',
                         'class' => 'setting-editor',
