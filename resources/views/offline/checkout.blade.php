@@ -18,7 +18,7 @@
                 <div class="d-flex align-items-center flex-column">
                     <form method="POST" action="{{ \Snaptec\Cashier\Cashier::lr_action('\Snaptec\Cashier\Controllers\OfflineController@claim', [
                             'invoice_uid' => $invoice->uid
-                        ]) }}">
+                        ]) }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group mb-3">
                             <div class="alert alert-info">

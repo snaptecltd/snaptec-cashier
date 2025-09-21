@@ -106,9 +106,10 @@ class OfflineController extends Controller
         }
         
         // claim invoice
+        $request = $request->only('payment_attachment');
         $invoice->checkout($service, function($invoice) {
             return new TransactionResult(TransactionResult::RESULT_PENDING);
-        });
+        }, true, $request);
         
         return redirect()->away(Billing::getReturnUrl());;
     }
