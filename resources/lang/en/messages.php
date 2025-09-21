@@ -156,5 +156,9 @@
         or credit cards. Auto billing is supported',
     'braintree.click_to_auth' => 'Click <a href=":link">here</a> to authenticate the payment.',
     'offline.attachemnt_required' => 'Attachment is required',
-    'offline.enable_attachment_upload' => 'Enable attachment upload'
+    'offline.enable_attachment_upload' => 'Enable attachment upload',
+    'offline.payment_attachment' => 'Payment attachment',
+    'offline.attachment_formats' => 'Attachment Format',
+    'offline.upload_instruction' => 'Upload Instruction',
+    'offline.upload_instruction.default' => 'Please upload a payment confirmation screenshot or deposit receipt copy or any payment-related receipt.',
 );
